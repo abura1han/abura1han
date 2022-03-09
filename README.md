@@ -1,5 +1,5 @@
 ### Hi there 👋
-
+I am Abu Raihan. I am a full-stack web developer, likes to solve complex things and contribute to open source projects.
 <!--
 **abura1han/abura1han** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
