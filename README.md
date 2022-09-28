@@ -13,9 +13,9 @@ Oh and these get updated everyday! God bless Github Actions :)
 
 ## 👨‍💻 Github Stats
 
-<img align="center" src="https://github-readme-stats.vercel.app/api?username=abura1han&show_icons=true&theme=dracula" />
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=abura1han&show_icons=true" />
 
-<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abura1han&layout=compact" />
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abura1han" />
 
 <!--
 **abura1han/abura1han** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
