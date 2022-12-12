@@ -1,30 +1,48 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const LINKS = {
+  github: "https://github.com/abura1han",
+  stackOverflow:
+    "https://stackoverflow.com/users/19072826/abu-ra1han?tab=profile",
+  twitter: "https://twitter.com/abura1han",
+  email: "mailto:xbura1han@gmail.com",
+  linkedin: "https://linkedin.com/in/abura1han",
+};
+const ABOUT_MY_SELF =
+  "Like to solve real world problems. Have interest on 💫 space, 🚀 rocket science";
 
 export default function Home() {
   return (
     <div className=" bg-[#111] flex justify-center">
-      <div className="mx-auto w-full max-w-[1600px] h-screen flex items-start  overflow-hidden justify-between">
+      <div className="mx-auto w-full max-w-[1900px] h-screen flex items-start  overflow-hidden justify-between relative">
+        <div
+          className="absolute w-[75%] h-full right-0 top-0"
+          style={{
+            backgroundImage: "url('/images/dark-background.jpg')",
+            backgroundPosition: "top",
+            backgroundSize: "cover",
+          }}
+        ></div>
         {/* Section 1 */}
-        <div className="ml-20">
+        <div className="ml-20 z-10">
           <div className="z-40 max-w-xl">
             {/* Logo */}
-            <div className="mt-10">
-              <Image
-                src={"/images/abura1han.svg"}
-                width={398}
-                height={234}
-                alt="abura1han"
-              />
+            <div className="mt-16">
+              <Link href={"/"}>
+                {" "}
+                <Image
+                  src={"/images/abura1han.svg"}
+                  width={398}
+                  height={234}
+                  alt="abura1han"
+                />
+              </Link>
             </div>
 
             {/* About myself */}
             <div className="mt-10">
-              <p className="text-white font-medium text-xl">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Doloremque dolorum, cumque illo consequuntur ratione ab vero
-                aperiam doloribus tempora excepturi at obcaecati! Ipsam fugit
-                necessitatibus nihil, aspernatur pariatur esse iure.
-              </p>
+              <p className="text-white font-medium text-xl">{ABOUT_MY_SELF}</p>
             </div>
 
             {/* Links */}
@@ -37,7 +55,7 @@ export default function Home() {
                   alt="Link list"
                 />
                 <a
-                  href="https://github.com/abura1han"
+                  href={LINKS.github}
                   rel="noreferrer"
                   target={"_blank"}
                   className={"text-white font-extralight text-xl ml-5"}
@@ -53,7 +71,7 @@ export default function Home() {
                   alt="Link list"
                 />
                 <a
-                  href="https://github.com/abura1han"
+                  href={LINKS.stackOverflow}
                   rel="noreferrer"
                   target={"_blank"}
                   className={"text-white font-extralight text-xl ml-5"}
@@ -69,7 +87,7 @@ export default function Home() {
                   alt="Link list"
                 />
                 <a
-                  href="https://github.com/abura1han"
+                  href={LINKS.twitter}
                   rel="noreferrer"
                   target={"_blank"}
                   className={"text-white font-extralight text-xl ml-5"}
@@ -85,7 +103,7 @@ export default function Home() {
                   alt="Link list"
                 />
                 <a
-                  href="https://github.com/abura1han"
+                  href={LINKS.email}
                   rel="noreferrer"
                   target={"_blank"}
                   className={"text-white font-extralight text-xl ml-5"}
@@ -94,18 +112,14 @@ export default function Home() {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-        {/* Section 2 */}
-        <div className="flex-1">
-          <div className="relative">
-            <Image
-              src={"/images/dark-background.jpg"}
-              width={1084}
-              height={1000}
-              alt="Background"
-              className="max-w-none absolute"
-            />
+            <div className="absolute right-0 top-1/2 z-10 -translate-y-2/4">
+              <Image
+                src={"/images/image-rect.svg"}
+                alt="Abu Raihan"
+                width={680}
+                height={680}
+              />
+            </div>
           </div>
         </div>
       </div>
