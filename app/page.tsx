@@ -6,9 +6,11 @@ const LINKS = {
   stackOverflow:
     "https://stackoverflow.com/users/19072826/abu-ra1han?tab=profile",
   twitter: "https://twitter.com/abura1han",
-  email: "mailto:xbura1han@gmail.com",
+  email: "mailto:aburaihaninbox@gmail.com",
+  resume: "/resume",
   linkedin: "https://linkedin.com/in/abura1han",
 };
+
 const ABOUT_MY_SELF =
   "Like to solve real world problems. Have interest on 💫 space, 🚀 rocket science";
 
@@ -71,28 +73,12 @@ export default function Home() {
                   alt="Link list"
                 />
                 <a
-                  href={LINKS.stackOverflow}
-                  rel="noreferrer"
-                  target={"_blank"}
-                  className={"text-white font-extralight text-xl ml-5"}
-                >
-                  StackOverflow
-                </a>
-              </li>
-              <li className="flex items-center justify-start">
-                <Image
-                  src={"/images/list-pointer.svg"}
-                  width={72}
-                  height={72}
-                  alt="Link list"
-                />
-                <a
                   href={LINKS.twitter}
                   rel="noreferrer"
                   target={"_blank"}
                   className={"text-white font-extralight text-xl ml-5"}
                 >
-                  Twitter
+                  X (Twitter)
                 </a>
               </li>
               <li className="flex items-center justify-start">
@@ -111,15 +97,31 @@ export default function Home() {
                   Email
                 </a>
               </li>
+              <li className="flex items-center justify-start">
+                <Image
+                  src={"/images/list-pointer.svg"}
+                  width={72}
+                  height={72}
+                  alt="Link list"
+                />
+                <a
+                  href={LINKS.resume}
+                  rel="noreferrer"
+                  target={"_blank"}
+                  className={"text-white font-extralight text-xl ml-5"}
+                >
+                  Resume
+                </a>
+              </li>
             </ul>
-            <div className="absolute right-0 top-1/2 z-10 -translate-y-2/4">
+            {/* <div className="absolute right-0 top-1/2 z-10 -translate-y-2/4 bg-gray-300 rounded-full overflow-hidden">
               <Image
-                src={"/images/image-rect.svg"}
+                src={"/me-pro.jpeg"}
                 alt="Abu Raihan"
-                width={680}
-                height={680}
+                width={480}
+                height={480}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
