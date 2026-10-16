@@ -1,35 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { ReactNode } from "react";
 
-const Avatar = () => (
-  <div className="relative mx-auto w-32 h-32 mb-4">
-    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-slate-300 to-slate-500 flex items-center justify-center overflow-hidden border-4 border-white shadow-xl">
-      <Image src={"/me-pro.jpeg"} alt="Abu Raihan" width={128} height={128} />
-    </div>
-  </div>
-);
-
 const SectionTitle = ({ children }: { children: ReactNode }) => (
-  <h2 className="text-[10px] font-bold tracking-[0.25em] uppercase text-slate-500 mb-3 mt-1">
-    {children}
-  </h2>
-);
-
-const Divider = () => <div className="border-t border-slate-200 my-4" />;
-
-const ContactItem = ({ icon, text }: { icon: ReactNode; text: string }) => (
-  <div className="flex items-center gap-2 text-xs text-slate-600 mb-2">
-    <span className="text-slate-400 w-4 flex-shrink-0">{icon}</span>
-    <span className="break-all">{text}</span>
+  <div className="mt-7 mb-4">
+    <h2 className="font-display text-center text-[13px] font-semibold uppercase tracking-[0.32em] text-stone-900">
+      {children}
+    </h2>
+    <div className="mt-2 border-t border-stone-800" />
+    <div className="mt-[2px] border-t border-stone-300" />
   </div>
 );
 
-const SkillBadge = ({ label }: { label: string }) => (
-  <span className="inline-block text-[11px] bg-slate-100 text-slate-600 rounded px-2 py-0.5 mb-1 mr-1">
-    {label}
-  </span>
+const Ornament = () => (
+  <div className="flex items-center justify-center gap-3 text-stone-400">
+    <span className="h-px w-16 bg-stone-300" />
+    <span className="text-[10px]">❦</span>
+    <span className="h-px w-16 bg-stone-300" />
+  </div>
 );
 
 const ExperienceItem = ({
@@ -45,23 +33,28 @@ const ExperienceItem = ({
   period: string;
   bullets: string[];
 }) => (
-  <div className="mb-5">
-    <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-0.5">
-      // {title}
-    </p>
-    <p className="text-sm font-semibold text-slate-800 leading-tight">
-      {company}{" "}
-      <span className="font-normal text-slate-400">
-        — {location} — {period}
+  <div className="mb-5 break-inside-avoid">
+    <div className="flex items-baseline justify-between gap-4">
+      <h3 className="font-display text-[15px] font-semibold text-stone-900">
+        {company}
+      </h3>
+      <span className="text-[12.5px] italic text-stone-600 whitespace-nowrap">
+        {period}
       </span>
-    </p>
-    <ul className="mt-2 space-y-1.5">
+    </div>
+    <div className="flex items-baseline justify-between gap-4">
+      <p className="text-[13px] italic text-stone-700">{title}</p>
+      <p className="text-[12.5px] italic text-stone-500 text-right">
+        {location}
+      </p>
+    </div>
+    <ul className="mt-2 space-y-1">
       {bullets.map((b, i) => (
         <li
           key={i}
-          className="flex gap-2 text-[12.5px] text-slate-600 leading-snug"
+          className="relative pl-4 text-[13px] leading-[1.55] text-stone-800 text-justify"
         >
-          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-slate-400 flex-shrink-0" />
+          <span className="absolute left-0 top-0 text-stone-500">&bull;</span>
           {b}
         </li>
       ))}
@@ -69,23 +62,13 @@ const ExperienceItem = ({
   </div>
 );
 
-const EducationItem = ({
-  degree,
-  school,
-  location,
-  year,
-}: {
-  degree: string;
-  school: string;
-  location: string;
-  year: string;
-}) => (
-  <div className="mb-4 text-center">
-    <p className="text-[12px] font-bold text-slate-800">{degree}</p>
-    <p className="text-[11px] text-slate-500">{school}</p>
-    <p className="text-[11px] text-slate-400">{location}</p>
-    <p className="text-[11px] text-slate-400">{year}</p>
-  </div>
+const SkillRow = ({ label, items }: { label: string; items: string[] }) => (
+  <p className="text-[13px] leading-[1.6] text-stone-800 mb-2">
+    <span className="font-display font-semibold small-caps tracking-wide mr-2">
+      {label}:
+    </span>
+    {items.join(" · ")}
+  </p>
 );
 
 export default function Resume() {
@@ -117,8 +100,20 @@ export default function Resume() {
         ],
       },
       {
-        title: "Founder",
-        company: "LiniarCity",
+        title: "Founder & Developer",
+        company: "FindJobBot.com",
+        location: "Global · Remote",
+        period: "2026–Present",
+        bullets: [
+          "Founded and built an automated job-search service: users upload a resume once, and it scans job boards, company career pages, and remote and local portals every day.",
+          "Developed a match-ranking engine that scores openings against each user's experience and alerts them when a relevant role is posted.",
+          "Built an approval-gated application flow that submits tailored applications only after the user confirms each role.",
+          "Added resume and LinkedIn profile reviews with suggested edits aligned to a user's target roles.",
+        ],
+      },
+      {
+        title: "Founder & Developer",
+        company: "LiniarCity.com",
         location: "Khulna, Bangladesh",
         period: "2025–Present",
         bullets: [
@@ -129,9 +124,32 @@ export default function Resume() {
         ],
       },
       {
-        title: "Founder",
-        company: "HighX",
-        location: "Remote",
+        title: "Senior Software Engineer",
+        company: "Amarlodge.com",
+        location: "Dhaka, Bangladesh",
+        period: "2023–2024",
+        bullets: [
+          "Led product research, prototyping, and full-cycle development of SaaS solutions.",
+          "Managed client feedback loops and consistently delivered projects on time and within scope.",
+          "Collaborated cross-functionally to launch and scale core platform features.",
+        ],
+      },
+      {
+        title: "Founder & Developer",
+        company: "Sylo.run",
+        location: "Global · Remote",
+        period: "2026–Present",
+        bullets: [
+          "Founded and built an AI presentation platform that drafts, designs, and updates slide decks directly from a company's business data.",
+          "Integrated live data sources (Sheets, Stripe, Postgres, Notion, Drive) so every chart stays linked to its source and decks never go stale.",
+          "Built sharing analytics showing who read a deck and where they dropped off, with suggested fixes to improve engagement.",
+          "Developed automatic brand application and a market-watch feature that drafts responsive slides when competitors or markets change; customer data is encrypted and never used for model training.",
+        ],
+      },
+      {
+        title: "Founder & Developer",
+        company: "HighX.dev",
+        location: "Global . Remote",
         period: "2025–Present",
         bullets: [
           "Building an AI-native cloud platform for developers to create, deploy, and distribute AI applications and agents.",
@@ -148,17 +166,6 @@ export default function Resume() {
           "Engineered responsive, high-performance interfaces for a high-traffic platform.",
           "Enhanced user experience through performance optimization and intuitive design improvements.",
           "Contributed to product development from early research through implementation and iteration.",
-        ],
-      },
-      {
-        title: "Senior Software Engineer",
-        company: "Amarlodge Ltd.",
-        location: "Dhaka, Bangladesh",
-        period: "2023–2024",
-        bullets: [
-          "Led product research, prototyping, and full-cycle development of SaaS solutions.",
-          "Managed client feedback loops and consistently delivered projects on time and within scope.",
-          "Collaborated cross-functionally to launch and scale core platform features.",
         ],
       },
     ],
@@ -208,180 +215,69 @@ export default function Resume() {
     },
   };
 
+
   return (
-    <div className="min-h-screen bg-slate-100 flex items-start justify-center py-8 px-4 font-serif">
+    <div className="min-h-screen bg-stone-200 py-10 px-4 font-body">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
-        .font-serif { font-family: 'DM Sans', sans-serif; }
-        .font-display { font-family: 'Playfair Display', Georgia, serif; }
-        .resume-shadow { box-shadow: 0 4px 40px 0 rgba(0,0,0,0.13); }
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+        .font-body { font-family: 'EB Garamond', Garamond, Georgia, serif; }
+        .font-display { font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif; }
+        .small-caps { font-variant: small-caps; }
+        .paper { box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 10px 40px rgba(60,40,20,0.18); }
         @media print {
-          body { background: white !important; }
+          body, .font-body { background: white !important; }
           .no-print { display: none !important; }
-          .resume-shadow { box-shadow: none !important; }
+          .paper { box-shadow: none !important; margin: 0 !important; max-width: none !important; padding: 0 !important; }
         }
       `}</style>
 
-      {/* Print Button */}
       <button
         onClick={() => window.print()}
-        className="no-print fixed top-4 right-4 z-50 bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg hover:bg-slate-700 transition-colors flex items-center gap-2"
+        className="no-print fixed top-4 right-4 z-50 bg-stone-900 text-stone-50 font-body text-sm px-4 py-1.5 rounded-sm shadow-lg hover:bg-stone-700 transition-colors"
       >
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
-          />
-        </svg>
         Print / PDF
       </button>
 
-      {/* Resume Card */}
-      <div className="w-full max-w-4xl bg-white resume-shadow rounded-2xl overflow-hidden">
-        <div className="flex flex-col md:flex-row">
-          {/* LEFT SIDEBAR */}
-          <div className="w-full md:w-[300px] md:min-w-[260px] bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200 p-8 flex flex-col items-center md:items-stretch">
-            {/* Avatar & Name */}
-            <div className="flex flex-col items-center text-center mb-2">
-              <Avatar />
-              <h1 className="text-3xl font-black text-slate-800 leading-tight tracking-tight mt-1">
-                {data.name}
-              </h1>
-              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-400 mt-1">
-                {data.title}
-              </p>
-            </div>
-
-            <Divider />
-
-            {/* Contact */}
-            <SectionTitle>Contact</SectionTitle>
-            <ContactItem
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="w-4 h-4"
-                >
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                </svg>
-              }
-              text={data.contact.phone}
-            />
-            <ContactItem
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="w-4 h-4"
-                >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-              }
-              text={data.contact.email}
-            />
-            <ContactItem
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="w-4 h-4"
-                >
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              }
-              text={data.contact.location}
-            />
-            <ContactItem
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-4 h-4"
-                >
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              }
-              text={data.contact.linkedin}
-            />
-
-            <Divider />
-
-            {/* Overview */}
-            <SectionTitle>Professional Overview</SectionTitle>
-            <p className="text-[12px] text-slate-500 leading-relaxed text-center md:text-left">
-              {data.overview}
-            </p>
-
-            <Divider />
-
-            {/* Education */}
-            {/* <SectionTitle>Education</SectionTitle>
-            <div>
-              {data.education.map((e, i) => (
-                <EducationItem key={i} {...e} />
-              ))}
-            </div> */}
+      <div className="paper mx-auto max-w-[820px] bg-[#fffdf8] px-8 py-10 sm:px-16 sm:py-14 text-stone-900">
+        {/* Header */}
+        <header className="text-center">
+          <h1 className="font-display text-5xl font-semibold uppercase tracking-[0.18em] sm:text-[54px]">
+            {data.name}
+          </h1>
+          <p className="mt-2 text-[15px] italic text-stone-600">{data.title}</p>
+          <div className="mt-4">
+            <Ornament />
           </div>
+          <p className="mt-4 text-[13px] text-stone-700 leading-relaxed">
+            {data.contact.location}
+            <span className="mx-2 text-stone-400">|</span>
+            {data.contact.phone}
+            <span className="mx-2 text-stone-400">|</span>
+            {data.contact.email}
+            <span className="mx-2 text-stone-400">|</span>
+            {data.contact.linkedin}
+          </p>
+        </header>
 
-          {/* RIGHT MAIN */}
-          <div className="flex-1 p-8">
-            {/* Professional Experience */}
-            <SectionTitle>Professional Experience</SectionTitle>
-            {data.experience.map((exp, i) => (
-              <ExperienceItem key={i} {...exp} />
-            ))}
+        <SectionTitle>Profile</SectionTitle>
+        <p className="text-[13.5px] leading-[1.65] text-stone-800 text-justify first-letter:font-display first-letter:text-4xl first-letter:font-semibold first-letter:float-left first-letter:leading-[0.9] first-letter:pr-2 first-letter:pt-1">
+          {data.overview}
+        </p>
 
-            <Divider />
+        <SectionTitle>Professional Experience</SectionTitle>
+        {data.experience.map((exp, i) => (
+          <ExperienceItem key={i} {...exp} />
+        ))}
 
-            {/* Core Skills */}
-            <SectionTitle>Core Skills</SectionTitle>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-2">
-              <div>
-                <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">
-                  // Professional
-                </p>
-                <div>
-                  {data.skills.professional.map((s) => (
-                    <SkillBadge key={s} label={s} />
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">
-                  // Technical
-                </p>
-                <div>
-                  {data.skills.technical.map((s) => (
-                    <SkillBadge key={s} label={s} />
-                  ))}
-                </div>
-              </div>
-            </div>
+        <SectionTitle>Core Skills</SectionTitle>
+        <SkillRow label="Professional" items={data.skills.professional} />
+        <SkillRow label="Technical" items={data.skills.technical} />
 
-            <Divider />
-
-            {/* Footer */}
-            <p className="text-center text-[10px] text-slate-300 tracking-widest uppercase mt-2">
-              References available upon request
-            </p>
-          </div>
+        <div className="mt-8">
+          <Ornament />
+          <p className="mt-3 text-center text-[11px] italic tracking-wide text-stone-500">
+            References available upon request
+          </p>
         </div>
       </div>
     </div>
