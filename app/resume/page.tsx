@@ -23,12 +23,14 @@ const Ornament = () => (
 const ExperienceItem = ({
   title,
   company,
+  url,
   location,
   period,
   bullets,
 }: {
   title: string;
   company: string;
+  url: string;
   location: string;
   period: string;
   bullets: string[];
@@ -37,6 +39,14 @@ const ExperienceItem = ({
     <div className="flex items-baseline justify-between gap-4">
       <h3 className="font-display text-[15px] font-semibold text-stone-900">
         {company}
+        <a
+          href={`https://${url}`}
+          target="_blank"
+          rel="noreferrer"
+          className="ml-2 font-body text-[12.5px] font-normal italic text-stone-500 hover:text-stone-900 hover:underline"
+        >
+          {url}
+        </a>
       </h3>
       <span className="text-[12.5px] italic text-stone-600 whitespace-nowrap">
         {period}
@@ -90,6 +100,7 @@ export default function Resume() {
       {
         title: "Senior Software Engineer",
         company: "Pikky Tech Pvt Ltd",
+        url: "pikky.ai",
         location: "Hyderabad, India",
         period: "2022–Present",
         bullets: [
@@ -101,7 +112,8 @@ export default function Resume() {
       },
       {
         title: "Founder & Developer",
-        company: "FindJobBot.com",
+        company: "FindJobBot",
+        url: "findjobbot.com",
         location: "Global · Remote",
         period: "2026–Present",
         bullets: [
@@ -113,7 +125,8 @@ export default function Resume() {
       },
       {
         title: "Founder & Developer",
-        company: "LiniarCity.com",
+        company: "LiniarCity",
+        url: "liniarcity.com",
         location: "Khulna, Bangladesh",
         period: "2025–Present",
         bullets: [
@@ -125,7 +138,8 @@ export default function Resume() {
       },
       {
         title: "Senior Software Engineer",
-        company: "Amarlodge.com",
+        company: "Amarlodge",
+        url: "amarlodge.com",
         location: "Dhaka, Bangladesh",
         period: "2023–2024",
         bullets: [
@@ -136,7 +150,8 @@ export default function Resume() {
       },
       {
         title: "Founder & Developer",
-        company: "Sylo.run",
+        company: "Sylo",
+        url: "sylo.run",
         location: "Global · Remote",
         period: "2026–Present",
         bullets: [
@@ -148,7 +163,8 @@ export default function Resume() {
       },
       {
         title: "Founder & Developer",
-        company: "HighX.dev",
+        company: "HighX",
+        url: "highx.dev",
         location: "Global . Remote",
         period: "2025–Present",
         bullets: [
@@ -160,6 +176,7 @@ export default function Resume() {
       {
         title: "Software Engineer",
         company: "MyQuranGoal",
+        url: "f.myqurangoal.com",
         location: "Remote",
         period: "2024–Present",
         bullets: [
